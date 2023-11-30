@@ -238,11 +238,12 @@ currentFolder = pwd;
 if ispc
     MatlabFile = fullfile([currentFolder '\Data' '\*.mat']);
     MouseFileName = dir(MatlabFile);
-    load([currentFolder '\Data\' MouseFileName.name]);
+    %load([currentFolder '\Data\' MouseFileName.name]);
+    Data = load(fullfile("C:\Users\xagao\OneDrive\Bureau\bio482_miniproject\matlab\code\Data\Kiritani_Data.mat"));
 elseif ismac
     MatlabFile = fullfile([currentFolder'/Data' '/*.mat']);
     MouseFileName = dir(MatlabFile);
-    load([currentFolder '/Data/' MouseFileName.name]);
+    Data = load([currentFolder '/Data/' MouseFileName.name]);
 end
 handles.data = Data;
 
