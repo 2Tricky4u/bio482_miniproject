@@ -19,12 +19,12 @@ def rand_jitter(arr):
     """ Add random normal noise to an array. """
     return arr + np.random.randn(len(arr)) * 0.05
 
-def jitter_scatterplot(x, y, s=20, c='b', marker='o', cmap=None, norm=None, vmin=None, vmax=None, alpha=None, linewidths=None, **kwargs):
+def jitter_scatterplot(x, y, s=20, c=None, marker='o', cmap=None, norm=None, vmin=None, vmax=None, alpha=None, linewidths=None, ax = plt.gca(), label = None, **kwargs):
     """
     Scatterplot with jittered data along x-axis. This is just a positional jitter for vertical type plot.
     Jitter along y-axis would change actual data.
     """
-    return plt.scatter(rand_jitter(x), y, s=s, c=c, marker=marker, cmap=cmap, norm=norm, vmin=vmin, vmax=vmax, alpha=alpha, linewidths=linewidths, **kwargs)
+    return ax.scatter(rand_jitter(x), y, s=s, c=c, marker=marker, cmap=cmap, norm=norm, vmin=vmin, vmax=vmax, alpha=alpha, linewidths=linewidths, label=label, **kwargs)
 
 def plot_avg_mean_fft(ax, fft_matrix, sr, cell_class, color):
     """
